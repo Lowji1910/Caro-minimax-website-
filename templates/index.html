@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caro AI</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <!-- Game Title -->
+    <h1 class="game-title">Caro AI</h1>
+
+    <!-- Popup chọn phe -->
+    <div id="sideSelection">
+      <h2>Chọn phe của bạn</h2>
+      <div class="side-buttons">
+        <button id="chooseX">
+          <span class="symbol">X</span>
+          <span class="label">Đỏ</span>
+        </button>
+        <button id="chooseO">
+          <span class="symbol">O</span>
+          <span class="label">Xanh dương</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Popup chọn lượt đi -->
+    <div id="turnSelection" class="hidden">
+      <h2>Chọn lượt đi</h2>
+      <div class="turn-buttons">
+        <button id="chooseFirst">
+          <span class="icon">⚡</span>
+          <span class="label">Đi trước</span>
+        </button>
+        <button id="chooseSecond">
+          <span class="icon">⌛</span>
+          <span class="label">Đi sau</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Game Container -->
+    <div class="game-container">
+      <!-- Bàn cờ -->
+      <div class="main-layout">
+        <div class="side-info left">
+          <div class="player-info">
+            <div class="player-label">Người chơi</div>
+            <div id="turnStatusLeft" class="turn-status"></div>
+            <div id="timerLeft" class="timer"></div>
+          </div>
+        </div>
+        
+        <div id="board"></div>
+        
+        <div class="side-info right">
+          <div class="player-info">
+            <div class="player-label">Bot</div>
+            <div id="turnStatusRight" class="turn-status"></div>
+            <div id="timerRight" class="timer"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Controls: Undo & Play Again -->
+      <div class="controls">
+        <button id="undo">
+          <span class="icon">↩</span>
+          <span class="label">Lùi một bước</span>
+        </button>
+        <button id="playAgain" class="hidden">
+          <span class="icon">↻</span>
+          <span class="label">Chơi lại</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Thông báo (win/lose/warning) -->
+    <div id="message" class="hidden"></div>
+
+    <script src="{{ url_for('static', filename='js/game.js') }}"></script>
+  </body>
+</html>
